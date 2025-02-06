@@ -55,7 +55,7 @@ class googleSigninApi(APIView):
             picture = userinfo.get('picture')
             username = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
             user, created = CustomUser.objects.get_or_create(email = email, defaults={
-                'username' : f"{userinfo["name"]}_{username}",
+                'username' : f"{userinfo['name']}_{username}",
                 'is_active' : True,
                 'name' : userinfo["name"],
                 'profile_picture' : picture if picture else "profile_pictures/default.jpg"
